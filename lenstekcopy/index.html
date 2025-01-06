@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lensetek International, LLC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slider {
+            position: relative;
+            max-width: 100%;
+            height: 600px;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            transition: background 0.3s ease;
+        }
+        .slide:hover::before {
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .slide img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+        .slide:hover img {
+            transform: scale(1.05);
+        }
+        .content {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            color: white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            z-index: 2;
+        }
+        .content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .content p {
+            font-size: 24px;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            margin: 5px 0;
+        }
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px 20px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .footer-left {
+            flex: 1;
+            margin-right: 40px;
+        }
+        .footer-right {
+            flex: 1;
+        }
+        .company-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: white;
+        }
+        .company-info {
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+        .newsletter-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .newsletter-text {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .subscribe-form {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        .subscribe-form input[type="email"] {
+            flex: 1;
+            padding: 10px;
+            border: none;
+        }
+        .subscribe-form button {
+            padding: 10px 30px;
+            background: #FF0000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .subscribe-form button:hover {
+            background: #808080;
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+        .copyright {
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .designer {
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .designer span {
+            color: #00BFA6;
+            margin-left: 5px;
+        }
+        .slide-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+        .indicator {
+            width: 30px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+        .indicator.active {
+            background: white;
+        }
+        .ai-text {
+            margin-top: -10px !important;
+            display: block;
+        }
+        .slide-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+        .indicator {
+            width: 30px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+        .indicator.active {
+            background: white;
+        }
+        .ai-text {
+            margin-top: -10px !important;
+            display: block;
+        }
+        #prev {
+            border-radius: 0 3px 3px 0;
+        }
+        #next {
+            border-radius: 3px 0 0 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="f.jpg" alt="Slide 1">
+                <div class="content">
+                    <div class="brand-name">Lensetek Int. LLC</div>
+                    <h1>Welcome to Lensetek</h1>
+                    <p>We Invest in Startups Worldwide.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="g.jpg" alt="Slide 2">
+                <div class="content">
+                    <div class="brand-name">Lensetek Int. LLC</div>
+                    <h1>Lensetek International LLC</h1>
+                    <p>We Invest in Stock Markets Worldwide.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="h.jpg" alt="Slide 3">
+                <div class="content">
+                    <div class="brand-name">Lensetek Int. LLC</div>
+                    <h1>Lensetek.com</h1>
+                    <p>We Invest in Artificial</p>
+                    <p class="ai-text">Intelligence</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h2 class="company-title">Lensetek Int. LLC</h2>
+                <div class="company-info">
+                    <p>1942 Broadway St. STE 314C Boulder.</p>
+                    <p>CO 80302, Colorado, United States.</p>
+                    <p>Email: info@lensetek.com</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <h3 class="newsletter-title">Our Newsletter</h3>
+                <p class="newsletter-text">Subscribe for our events, informations and announcements</p>
+                <div class="subscribe-form">
+                    <input type="email" id="newsletter">
+                    <button id="subscribeBtn">Subscribe</button>
+                </div>
+            </div>
+            <div class="copyright">
+                © Copyright Lensetek International, LLC. All Rights Reserved
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelector('.slides');
+        const slide = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+        
+        const indicators = document.querySelectorAll('.indicator');
+        
+        function updateIndicators(index) {
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+        
+        function moveSlide(index) {
+            currentIndex = index;
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateIndicators(currentIndex);
+        }
+        
+        setInterval(() => {
+            currentIndex = (currentIndex < slide.length - 1) ? currentIndex + 1 : 0;
+            moveSlide(currentIndex);
+        }, 5000);
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const subscribeBtn = document.getElementById('subscribeBtn');
+            const emailInput = document.getElementById('newsletter');
+
+            subscribeBtn.addEventListener('click', function() {
+                const email = emailInput.value;
+                
+                if (email) {
+                    alert('Terima kasih telah berlangganan newsletter kami!');
+                    emailInput.value = '';
+                    emailInput.focus();
+                } else {
+                    alert('Mohon masukkan alamat email yang valid');
+                }
+            });
+
+            emailInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    subscribeBtn.click();
+                }
+            });
+        });
+        
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                moveSlide(index);
+            });
+        });
+    </script>
+
+</body>
+</html>

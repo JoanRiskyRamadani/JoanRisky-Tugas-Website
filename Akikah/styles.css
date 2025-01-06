@@ -1,0 +1,492 @@
+:root {
+    --primary-color: #8B4513;
+    --secondary-color: #DEB887;
+    --text-color: #333;
+    --background-color: #FFF8DC;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.bismillah {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.bismillah h2 {
+    font-family: 'Arabic Typesetting', serif;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.pembuka {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.ornamen {
+    height: 30px;
+    background-image: url('ornamen.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 20px 0;
+}
+
+.profil-anak {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.foto-anak img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid var(--secondary-color);
+}
+
+.detail-acara {
+    padding: 40px 20px;
+    background-color: white;
+}
+
+.waktu-tempat {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.item {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+}
+
+.rundown {
+    padding: 40px 20px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.rundown ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rundown li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.share-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.share-wa {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+@media (max-width: 768px) {
+    .waktu-tempat {
+        grid-template-columns: 1fr;
+    }
+}
+/* ... CSS sebelumnya tetap sama ... */
+
+/* Styling untuk Doa Aqiqah */
+.doa-aqiqah {
+    background-color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.ornamen-top, .ornamen-bottom {
+    height: 40px;
+    background-image: url('ornamen-doa.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 20px 0;
+}
+
+.arabic-text {
+    font-family: 'Arabic Typesetting', serif;
+    font-size: 2em;
+    line-height: 1.8;
+    margin: 30px 0;
+    color: var(--primary-color);
+}
+
+.doa-translation {
+    font-style: italic;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Styling untuk Menu Aqiqah */
+.menu-aqiqah {
+    padding: 40px 20px;
+    background-color: #fff5e6;
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.menu-item {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-item h4 {
+    color: var(--primary-color);
+    padding: 15px;
+    margin: 0;
+}
+
+.menu-item ul {
+    list-style: none;
+    padding: 0 15px 15px;
+}
+
+.menu-item li {
+    padding: 5px 0;
+    color: #666;
+    border-bottom: 1px dashed #eee;
+}
+
+/* Animasi untuk elemen-elemen */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-item, .doa-aqiqah {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .arabic-text {
+        font-size: 1.5em;
+    }
+}
+
+/* Audio Player Styling */
+.audio-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.audio-control {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.audio-control:hover {
+    transform: scale(1.1);
+    background-color: var(--secondary-color);
+}
+
+.audio-control i {
+    font-size: 1.2em;
+}
+
+/* Responsive Design */
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+
+    .menu-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .menu-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 991px) {
+    .container {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .bismillah h2 {
+        font-size: 2.5em;
+    }
+
+    .profil-anak {
+        padding: 20px;
+    }
+
+    .foto-anak img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .menu-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .waktu-tempat {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .arabic-text {
+        font-size: 1.8em;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) {
+    .container {
+        max-width: 540px;
+        padding: 0 15px;
+    }
+
+    .bismillah h2 {
+        font-size: 2em;
+    }
+
+    .pembuka h1 {
+        font-size: 1.8em;
+    }
+
+    .profil-anak h2 {
+        font-size: 1.6em;
+    }
+
+    .foto-anak img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .menu-item {
+        margin: 10px 0;
+    }
+
+    .doa-aqiqah {
+        padding: 20px 15px;
+    }
+
+    .arabic-text {
+        font-size: 1.5em;
+        padding: 0 10px;
+    }
+
+    .share-buttons {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .share-wa {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .audio-player {
+        top: 15px;
+        right: 15px;
+    }
+
+    .audio-control {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+    .bismillah {
+        padding: 30px 15px;
+    }
+
+    .bismillah h2 {
+        font-size: 1.8em;
+    }
+
+    .pembuka {
+        padding: 30px 15px;
+    }
+
+    .pembuka h1 {
+        font-size: 1.6em;
+    }
+
+    .foto-anak img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .detail-acara h3,
+    .rundown h3 {
+        font-size: 1.4em;
+    }
+
+    .item {
+        padding: 15px;
+    }
+
+    .rundown li {
+        padding: 8px 0;
+    }
+
+    .galeri-item {
+        margin: 10px 0;
+    }
+
+    .quote-item {
+        padding: 20px;
+    }
+
+    .hadits-item {
+        padding: 20px 15px;
+    }
+
+    .hadits-item .arabic-text {
+        font-size: 1.3em;
+    }
+
+    footer {
+        padding: 30px 15px;
+    }
+
+    .share-wa {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+}
+
+/* Landscape orientation specific */
+@media (max-height: 500px) and (orientation: landscape) {
+    .bismillah {
+        padding: 20px 15px;
+    }
+
+    .foto-anak img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .menu-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .audio-player {
+        top: 10px;
+        right: 10px;
+    }
+
+    .share-buttons {
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #1a1a1a;
+        --text-color: #ffffff;
+    }
+
+    .menu-item,
+    .quote-item {
+        background: #2d2d2d;
+    }
+
+    .item {
+        background: rgba(255, 255, 255, 0.05);
+    }
+}
+
+/* Print styles */
+@media print {
+    .audio-player,
+    .share-buttons {
+        display: none;
+    }
+
+    .bismillah,
+    .pembuka,
+    .detail-acara {
+        page-break-inside: avoid;
+    }
+}
+
+/* Animation improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
